@@ -2,6 +2,9 @@ package presentacion;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JButton;
 
@@ -21,7 +24,11 @@ public class Controlador implements ActionListener {
 		// Para linea 1
 		// -------------------------------------------------
 		if (boton.equals(ventana.getBotonEncenderRojoL1())) {
-			ventana.getModelo().encenderBombillaRoja(1);
+                    try {
+                        ventana.getModelo().encenderBombillaRoja(1);
+                    } catch (IOException ex) {
+                        Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                    }
 			ventana.repaint();
 			return;
 		}
@@ -60,7 +67,11 @@ public class Controlador implements ActionListener {
 		// Para linea 2
 		// -------------------------------------------------
 		if (boton.equals(ventana.getBotonEncenderRojoL2())) {
-			ventana.getModelo().encenderBombillaRoja(2);
+                    try {
+                        ventana.getModelo().encenderBombillaRoja(2);
+                    } catch (IOException ex) {
+                        Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                    }
 			ventana.repaint();
 			return;
 		}
